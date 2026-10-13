@@ -45,3 +45,34 @@ const bookStore = {
 
 // Write your code here!
 
+//`header` changed to `bookStoreTitle` to make it more descriptive and avoid confusion with the HTML element id.
+const bookStoreTitle = document.getElementById("header");
+
+bookStoreTitle.textContent = bookStore.name;
+
+// Select the book list
+const bookList = document.getElementById("book-list");
+
+// Loop through every book in the bookstore
+bookStore.books.forEach(function(book) {
+
+    // Create an element for each book
+    const bookContainer = document.createElement("li");
+    const bookTitle = document.createElement("h3");
+    const bookAuthor = document.createElement("p");
+    const bookImage = document.createElement("img");
+
+    // Set the content and image for each book
+    bookTitle.textContent = book.title;
+    bookAuthor.textContent = book.author;
+    bookImage.src = book.imageUrl;
+
+    // Add the title, author, and image to the book container
+    bookContainer.append(bookTitle);
+    bookContainer.append(bookAuthor);
+    bookContainer.append(bookImage);
+
+    // Add the completed book container to the book list
+    bookList.append(bookContainer);
+
+});
